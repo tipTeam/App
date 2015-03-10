@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.iBATIS.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="hashMap" type="java.util.HashMap"/>
+	<typeAlias alias="get_doctor_votes" type="com.tip.product.app.ws.get_doctor_vote.ResponseItem"/>
+	
+	<select id="get_doctor_vote" parameterClass="java.util.HashMap" resultClass="get_doctor_votes">
+		select 1 from dual
+	</select>
+	
+</sqlMap>

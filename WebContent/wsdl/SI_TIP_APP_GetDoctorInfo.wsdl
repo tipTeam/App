@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservice.app.product.tip.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice.app.product.tip.com" xmlns:intf="http://webservice.app.product.tip.com" xmlns:tns1="http://get_doctor_info.ws.app.product.tip.com" xmlns:tns2="http://base.app.product.tip.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice.app.product.tip.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://base.app.product.tip.com"/>
+   <import namespace="http://get_doctor_info.ws.app.product.tip.com"/>
+   <element name="OP_Get_Doctor_Info">
+    <complexType>
+     <sequence>
+      <element name="request" type="tns1:Request"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns1_RequestItem">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:RequestItem"/>
+    </sequence>
+   </complexType>
+   <element name="OP_Get_Doctor_InfoResponse">
+    <complexType>
+     <sequence>
+      <element name="OP_Get_Doctor_InfoReturn" type="tns1:Response"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns1_ResponseItem">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:ResponseItem"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://base.app.product.tip.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://webservice.app.product.tip.com"/>
+   <import namespace="http://get_doctor_info.ws.app.product.tip.com"/>
+   <complexType abstract="true" name="AElement">
+    <sequence/>
+   </complexType>
+   <complexType name="BaseInfo">
+    <complexContent>
+     <extension base="tns2:AElement">
+      <sequence>
+       <element name="donmainCode" nillable="true" type="xsd:string"/>
+       <element name="requestTime" nillable="true" type="xsd:string"/>
+       <element name="userCode" nillable="true" type="xsd:string"/>
+       <element name="userRole" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://get_doctor_info.ws.app.product.tip.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://webservice.app.product.tip.com"/>
+   <import namespace="http://base.app.product.tip.com"/>
+   <complexType name="RequestItem">
+    <complexContent>
+     <extension base="tns2:AElement">
+      <sequence>
+       <element name="doctorCode" nillable="true" type="xsd:string"/>
+       <element name="doctorDep" nillable="true" type="xsd:string"/>
+       <element name="doctorHospital" nillable="true" type="xsd:string"/>
+       <element name="doctorName" nillable="true" type="xsd:string"/>
+       <element name="doctorSex" nillable="true" type="xsd:string"/>
+       <element name="doctorTitle" nillable="true" type="xsd:string"/>
+       <element name="major" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RequestMessage">
+    <sequence>
+     <element name="items" nillable="true" type="impl:ArrayOf_tns1_RequestItem"/>
+    </sequence>
+   </complexType>
+   <complexType name="Request">
+    <sequence>
+     <element name="baseInfo" nillable="true" type="tns2:BaseInfo"/>
+     <element name="message" nillable="true" type="tns1:RequestMessage"/>
+    </sequence>
+   </complexType>
+   <complexType name="ResponseItem">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="award" nillable="true" type="xsd:string"/>
+     <element name="birthday" nillable="true" type="xsd:string"/>
+     <element name="clinical_title" nillable="true" type="xsd:string"/>
+     <element name="code" nillable="true" type="xsd:string"/>
+     <element name="create_time" nillable="true" type="xsd:string"/>
+     <element name="education" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="good_at" nillable="true" type="xsd:string"/>
+     <element name="hospital" nillable="true" type="xsd:string"/>
+     <element name="hospital_dep" nillable="true" type="xsd:string"/>
+     <element name="id" nillable="true" type="xsd:string"/>
+     <element name="id_card" nillable="true" type="xsd:string"/>
+     <element name="introduce" nillable="true" type="xsd:string"/>
+     <element name="language" nillable="true" type="xsd:string"/>
+     <element name="last_modifile_time" nillable="true" type="xsd:string"/>
+     <element name="major" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="natives" nillable="true" type="xsd:string"/>
+     <element name="pohne_num" nillable="true" type="xsd:string"/>
+     <element name="pohto_url" nillable="true" type="xsd:string"/>
+     <element name="qr_code_url" nillable="true" type="xsd:string"/>
+     <element name="sex" nillable="true" type="xsd:string"/>
+     <element name="title_type" nillable="true" type="xsd:string"/>
+     <element name="video_url" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ResponseMessage">
+    <sequence>
+     <element name="errMsg" nillable="true" type="xsd:string"/>
+     <element name="items" nillable="true" type="impl:ArrayOf_tns1_ResponseItem"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Response">
+    <sequence>
+     <element name="baseInfo" nillable="true" type="tns2:BaseInfo"/>
+     <element name="message" nillable="true" type="tns1:ResponseMessage"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="OP_Get_Doctor_InfoRequest">
+
+      <wsdl:part element="impl:OP_Get_Doctor_Info" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="OP_Get_Doctor_InfoResponse">
+
+      <wsdl:part element="impl:OP_Get_Doctor_InfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SI_TIP_APP_GetDoctorInfo">
+
+      <wsdl:operation name="OP_Get_Doctor_Info">
+
+         <wsdl:input message="impl:OP_Get_Doctor_InfoRequest" name="OP_Get_Doctor_InfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:OP_Get_Doctor_InfoResponse" name="OP_Get_Doctor_InfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SI_TIP_APP_GetDoctorInfoSoapBinding" type="impl:SI_TIP_APP_GetDoctorInfo">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="OP_Get_Doctor_Info">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="OP_Get_Doctor_InfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="OP_Get_Doctor_InfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SI_TIP_APP_GetDoctorInfoService">
+
+      <wsdl:port binding="impl:SI_TIP_APP_GetDoctorInfoSoapBinding" name="SI_TIP_APP_GetDoctorInfo">
+
+         <wsdlsoap:address location="http://localhost:8080/appServer/services/SI_TIP_APP_GetDoctorInfo"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

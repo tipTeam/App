@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.iBATIS.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<typeAlias alias="hashMap" type="java.util.HashMap"/>
+	<typeAlias alias="get_doctor_infos" type="com.tip.product.app.ws.get_doctor_info.ResponseItem"/>
+	
+	<select id="get_doctor_info" parameterClass="java.util.HashMap" resultClass="get_doctor_infos">
+		SELECT  
+			ID ,
+			NAME ,
+			SEX ,
+			BIRTHDAY ,
+			PHONE_NUM ,
+			EMAIL ,
+			ID_CARD ,
+			TITLE_TYPE ,
+			CLINICAL_TITLE ,
+			HOSPITAL ,
+			HOSPITAL_DEP ,
+			LANGUAGE,
+			ADDRESS,
+			NATIVE,
+			GOOD_AT,
+			INTRODUCE,
+			MAJOR,
+			EDUCATION ,
+			AWARD,
+			VIDEO_URL,
+			PHOTO_URL,
+			CREATE_TIME,
+			LAST_MODIFILE_TIME,
+			DISEASE_ID,
+			QR_CODE,
+			CODE from  tip_doctor
+			
+	</select>
+	
+</sqlMap>
