@@ -32,6 +32,14 @@
 			DISEASE_ID,
 			QR_CODE,
 			CODE from  tip_doctor
+			 <dynamic>
+				<isNotEmpty prepend="where" property="doctorCode">
+					 CODE= #doctorCode#
+				</isNotEmpty>
+				<isNotEmpty prepend="and" property="doctorName">
+					 NAME= #doctorName#
+				</isNotEmpty>
+			</dynamic>
 			
 	</select>
 	

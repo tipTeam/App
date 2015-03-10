@@ -69,12 +69,12 @@ public class RequestItem extends AElement{
 	@Override
 	public String checkSelf() {
 		StringBuffer buf=new StringBuffer(64);
-		if(super.isNullOrEmpty(this.doctorCode)){
+		/*if(super.isNullOrEmpty(this.doctorCode)){
 			buf.append("用户doctorCode为空;");
 		}
 		if(super.isNullOrEmpty(this.doctorName)){
 			buf.append("用户doctorName为空;");
-		}
+		}*/
 		
 		return buf.toString();
 	}

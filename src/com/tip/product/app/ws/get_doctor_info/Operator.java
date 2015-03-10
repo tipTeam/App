@@ -1,6 +1,7 @@
 package com.tip.product.app.ws.get_doctor_info;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,22 +26,24 @@ public class Operator {
 
 		RequestMessage requestMessage = request.getMessage();
 		ResponseMessage responseMessage = response.getMessage();
-		RequestItem requestItem=new RequestItem();
 		
 		int baseId = 0;
+		List responseItemLists = new ArrayList();
+		RequestItem[] requestItems = requestMessage.getItems();	
+		
 		try {
 			//保存基础信息
 		//	baseId = BaseInfoManager.save(this.getClass().getPackage().getName(),request.getBaseInfo());
+			for (RequestItem requestItem : requestItems) {
 			//开始业务处理
 			HashMap<String,Object> params = new HashMap<String,Object>();
 			params.put("doctorCode",requestItem.getDoctorCode());
 			params.put("doctorName", requestItem.getDoctorName());
 			
-			RequestItem[] requestItems = requestMessage.getItems();	
-			
-		
 			// 数据库 输出接口参数		
-			List<ResponseItem> responseItemLists= SqlClient.getInstance().queryForList("get_doctor_info",params);
+			   responseItemLists= SqlClient.getInstance().queryForList("get_doctor_info",params);
+			  
+			}
 			
 			ResponseItem[] responseItems = new ResponseItem[responseItemLists.size()];
 			responseItemLists.toArray(responseItems);
@@ -48,7 +51,7 @@ public class Operator {
 		} catch (Exception e) {
 			responseMessage.setType(MessageStatus.ERROR);
 			e.printStackTrace();
-		//	responseMessage.setErrorMsg(e.getMessage());
+		 	responseMessage.setErrMsg(e.getMessage());
 		//	BaseInfoManager.saveException(baseId, e.getMessage());
 		} finally {
 			//放置返回信息
@@ -84,7 +87,7 @@ public class Operator {
 		if(this.errorBuf.length()>0){
 			this.hasError = true;
 			responseMessage.setType(MessageStatus.ERROR);
-		//	responseMessage.setErrorMsg(this.errorBuf.toString());
+		 	responseMessage.setErrMsg(this.errorBuf.toString());
 		}
 		
 		//放置返回信息
